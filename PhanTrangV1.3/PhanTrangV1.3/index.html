@@ -1,0 +1,106 @@
+v<!doctype html>
+<html ng-app="plunker">
+
+<head>
+  <script src="Http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+  <script src="script.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+  
+<body>
+	 <div ng-controller="PaginationDemoCtrl">
+      <!-- <table class="table"> -->
+        <!-- <tr ng-repeat="row in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) " filter = "true"> -->
+				<!-- <!-- slice: vị trí , bắt đầu muốn lấy trong mảng cho đến vị trí kết thúc.  -->
+					<!-- var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"]; -->
+					<!-- var citrus = fruits.slice(0, 3);   -> OUT: Banana,Orange,Lemon,  -->
+				<!-- --> -->
+		 <!-- <td>{{row.id}}</td> -->
+          <!-- <td> -->
+			<!-- <img ng-src="{{row.name}}" style="width: 100px; height: 100px; "> -->
+		  <!-- </td> -->
+        <!-- </tr> -->
+      <!-- </table>   -->
+	  <!-- <ul> -->
+		 <!-- <li ng-repeat="row in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))"> -->
+			 <!-- <img ng-src="{{row.name}}" style="width: 100px; height: 100px; "> -->
+		 <!-- </li> -->
+	  <!-- <ul> -->
+	  
+      <!-- <pagination -->
+		  <!-- total-items="totalItems"  -->
+		  <!-- ng-model="currentPage"  -->
+		  <!-- max-size="maxSize" -->
+		  <!-- class="pagination-sm"  -->
+		  <!-- boundary-links="true"  -->
+		  <!-- rotate="false"  -->
+		  <!-- num-pages="numPages"  -->
+		  <!-- items-per-page="itemsPerPage"> -->
+	  <!-- </pagination> -->
+	     <!-- View <select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> -->
+		  
+      <!-- <pre>Page:  -->
+		<!-- {{currentPage}} / {{numPages}} -->
+	    <!-- NumItem: {{totalItems}} -->
+	  <!-- </pre> -->
+	  
+	  <!-- mới -->
+	    <div class="modal-dialog"> 
+        <div class="modal-content">
+          <div class="modal-header"> 
+            <h4 class="modal-title">
+                 <p></p> 
+            </h4>
+          </div>
+          <div class="modal-body"> 
+             <ul style="list-style-type: none ;   margin: 0; padding: 0;">
+                <li ng-repeat = "row in data.slice(((currentPage - 1)* itemsPerPage), ((currentPage)* itemsPerPage)) "  style=" margin-left: 10px;  float: left ; ">
+					<h5> {{row.id}}  </h5> 
+				 <img ng-src="{{row.name}}" style="width: 100px; height: 100px; ">
+                </li> 
+             </ul>
+             <br><br> 
+            <div class="row"> 
+			 
+				  <div class="col-md-9">
+					<pagination
+					  total-items="totalItems" 
+					  ng-model="currentPage" 
+					  max-size="maxSize"
+					  class="pagination-sm" 
+					  boundary-links="true" 
+					  rotate="false" 
+					  num-pages="numPages" 
+					  items-per-page="itemsPerPage">
+					</pagination>  
+				  </div>
+				  <div class="col-md-2">
+					  <div class="btn-group"> 
+						 View 
+							 <select ng-model="viewby" ng-change="setItemsPerPage(viewby)"> 
+								 <option>5</option>
+								 <option>10</option>
+								 <option>40</option>
+							 </select>
+					  </div>               
+				  </div> 
+				 
+            </div> 
+          </div>
+          <div class="modal-footer"> 
+				<pre>Page: 
+					{{currentPage}} / {{numPages}}
+					NumItem: {{totalItems}}
+				</pre>
+          </div>
+        </div> 
+    </div>
+	  
+	  
+	  
+    </div>	
+</body>
+
+</html>
+
